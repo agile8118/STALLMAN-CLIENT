@@ -1,0 +1,27 @@
+.form {
+  &__group {
+    display: block;
+
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__label {
+    text-transform: capitalize;
+  }
+
+  &__input {
+    display: block;
+    width: 100%;
+    border: 1px solid #d7d3d3;
+    border-radius: 3px;
+    padding: 1rem 0.8rem;
+    font-size: 1.6rem;
+
+    &:focus {
+      outline: none;
+      border: 1px solid $color-orange;
+    }
+  }
+}

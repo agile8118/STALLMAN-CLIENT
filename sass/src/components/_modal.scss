@@ -1,0 +1,101 @@
+.modal {
+  position: fixed;
+  z-index: 3000;
+  padding: 10rem 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal__content {
+  overflow: hidden;
+  position: relative;
+  background-color: #fff;
+  margin: auto;
+  padding: 0;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+  max-width: 30%;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.46);
+  animation-name: animatetop;
+  animation-duration: 0.3s;
+
+  &--small {
+    max-width: 25%;
+  }
+
+  @media only screen and (max-width: 1460px) {
+    max-width: 50%;
+  }
+
+  @media only screen and (max-width: 62.5em) {
+    max-width: 70%;
+  }
+
+  @media only screen and (max-width: 51.25em) {
+    max-width: 80%;
+  }
+
+  @media only screen and (max-width: 38.75em) {
+    max-width: 95%;
+  }
+}
+
+.modal__header {
+  padding: 1.2rem 1.8rem;
+  background: #fcfcfc;
+  border-bottom: 1px solid #e5e5e5;
+
+  & h3 {
+    margin: 0;
+    text-transform: none;
+  }
+}
+
+.modal__body {
+  padding: 1.6rem 1.8rem;
+  color: #555;
+
+  & p {
+    font-size: 1.6rem;
+  }
+
+  & button {
+    padding: 0.7rem 2.5rem;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+}
+
+.modal__close {
+  float: right;
+  color: #bebebe;
+  cursor: pointer;
+  font-size: 2.5rem;
+  font-weight: 400;
+  transition: all 0.2s;
+  line-height: 1.2;
+
+  &:hover,
+  &:visited {
+    color: #919191;
+  }
+}
+
+.modal__footer {
+  &--one-button {
+    text-align: center;
+    padding-bottom: 2rem;
+    padding-top: 1rem;
+    display: block;
+
+    button {
+      padding-top: 1.2rem;
+      padding-bottom: 1.2rem;
+      width: 40%;
+    }
+  }
+}

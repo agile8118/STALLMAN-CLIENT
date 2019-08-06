@@ -1,0 +1,11 @@
+// Animation for modal when opens
+@keyframes animatetop {
+  from {
+    // top: -20px;
+    opacity: 0;
+  }
+  to {
+    // top: 0;
+    opacity: 1;
+  }
+}

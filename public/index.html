@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900"
+      rel="stylesheet"
+    />
+
+    <title>STALLMAN</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Navigation  -->
+    <nav class="navigation">
+      <div class="navigation__left">
+        <div class="navigation__brand"><a href="#">Stallman</a></div>
+      </div>
+      <div class="navigation__right">
+        <div class="navigation__item">
+          <a
+            onclick="toggleModal('modalSignIn')"
+            class="button"
+            href="javascript:void(0)"
+            >Sign in</a
+          >
+        </div>
+        <div class="navigation__item">
+          <a
+            class="button button--full"
+            href="javascript:void(0)"
+            onclick="toggleModal('modalSignUp')"
+            >Sign up</a
+          >
+        </div>
+      </div>
+    </nav>
+    <div class="navigation-message">
+      <span class="navigation-message__bold">!</span
+      ><span>Sign up now and get 1 month of free subscription.</span>
+    </div>
+
+    <div class="modal u-display-none" id="modalSignUp">
+      <div class="modal__content modal__content--small">
+        <div class="modal__header">
+          <span onclick="toggleModal('modalSignUp')" class="modal__close">
+            &times;
+          </span>
+          <h3 class="heading-tertiary">Create yout account</h3>
+        </div>
+        <div class="modal__body">
+          <form action="">
+            <div class="form__group">
+              <label class="form__label" for="">First name</label>
+              <input class="form__input" type="text" />
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="">Last name</label>
+              <input class="form__input" type="text" />
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="">Username</label>
+              <input class="form__input" type="text" />
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="">Email</label>
+              <input class="form__input" type="email" />
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="">Mobile</label>
+              <input class="form__input" type="text" />
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="">Password</label>
+              <input class="form__input" type="password" />
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="">Confirm password</label>
+              <input class="form__input" type="password" />
+            </div>
+          </form>
+        </div>
+        <div class="modal__footer modal__footer--one-button">
+          <button class="button button--full">Sign Up</button>
+          <div class="u-center-content u-margin-top-md">
+            <p>
+              Already have an account?
+              <a
+                onclick="toggleMultipleModal('modalSignIn', 'modalSignUp')"
+                href="javascript:void(0)"
+                >Sign In</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal u-display-none" id="modalSignIn">
+      <div class="modal__content modal__content--small">
+        <div class="modal__header">
+          <span onclick="toggleModal('modalSignIn')" class="modal__close">
+            &times;
+          </span>
+          <h3 class="heading-tertiary">Sign in to your account</h3>
+        </div>
+        <div class="modal__body">
+          <form action="">
+            <div class="form__group">
+              <label class="form__label" for="">Mobile</label>
+              <input class="form__input" type="text" />
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="">Password</label>
+              <input class="form__input" type="password" />
+            </div>
+          </form>
+        </div>
+        <div class="modal__footer modal__footer--one-button">
+          <button class="button button--full">Sign In</button>
+          <div class="u-center-content u-margin-top-md">
+            <p><a href="">Reset Your Password</a></p>
+            <p>
+              Don't have an account?
+              <a
+                href="javascript:void(0)"
+                onclick="toggleMultipleModal('modalSignIn', 'modalSignUp')"
+                >Sign Up</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="bundle.js"></script>
+    <script>
+      function toggleModal(id) {
+        document.querySelector("#" + id).classList.toggle("u-display-none");
+      }
+
+      function toggleMultipleModal(id1, id2) {
+        document.querySelector("#" + id1).classList.toggle("u-display-none");
+        document.querySelector("#" + id2).classList.toggle("u-display-none");
+      }
+    </script>
+  </body>
+</html>

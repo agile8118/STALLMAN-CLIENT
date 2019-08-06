@@ -1,0 +1,210 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  box-sizing: border-box; }
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #777;
+  font-size: 1.6rem; }
+
+a {
+  text-decoration: none;
+  color: #e67e22;
+  transition: all 0.2s; }
+  a:hover, a:active {
+    color: #d5741e; }
+
+@keyframes animatetop {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+.u-display-none {
+  display: none; }
+
+.u-center-content {
+  text-align: center; }
+
+.u-margin-top-xs {
+  margin-top: 0.5rem; }
+
+.u-margin-top-sm {
+  margin-top: 1rem; }
+
+.u-margin-top-md {
+  margin-top: 1.5rem; }
+
+.u-margin-top-lg {
+  margin-top: 2rem; }
+
+.button {
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: #333;
+  border-radius: 3px;
+  border: 1px solid #e67e22;
+  cursor: pointer;
+  transition: all 0.1s;
+  font-size: 1.6rem; }
+  .button:hover, .button:active {
+    color: #fff;
+    background: #e67e22; }
+  .button--full {
+    color: #fff;
+    background: #e67e22; }
+    .button--full:active, .button--full:hover {
+      background: #d5741e;
+      border: 1px solid #d5741e; }
+
+.modal {
+  position: fixed;
+  z-index: 3000;
+  padding: 10rem 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6); }
+
+.modal__content {
+  overflow: hidden;
+  position: relative;
+  background-color: #fff;
+  margin: auto;
+  padding: 0;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+  max-width: 30%;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.46);
+  animation-name: animatetop;
+  animation-duration: 0.3s; }
+  .modal__content--small {
+    max-width: 25%; }
+  @media only screen and (max-width: 1460px) {
+    .modal__content {
+      max-width: 50%; } }
+  @media only screen and (max-width: 62.5em) {
+    .modal__content {
+      max-width: 70%; } }
+  @media only screen and (max-width: 51.25em) {
+    .modal__content {
+      max-width: 80%; } }
+  @media only screen and (max-width: 38.75em) {
+    .modal__content {
+      max-width: 95%; } }
+
+.modal__header {
+  padding: 1.2rem 1.8rem;
+  background: #fcfcfc;
+  border-bottom: 1px solid #e5e5e5; }
+  .modal__header h3 {
+    margin: 0;
+    text-transform: none; }
+
+.modal__body {
+  padding: 1.6rem 1.8rem;
+  color: #555; }
+  .modal__body p {
+    font-size: 1.6rem; }
+  .modal__body button {
+    padding: 0.7rem 2.5rem;
+    margin-bottom: 0;
+    margin-top: 0; }
+
+.modal__close {
+  float: right;
+  color: #bebebe;
+  cursor: pointer;
+  font-size: 2.5rem;
+  font-weight: 400;
+  transition: all 0.2s;
+  line-height: 1.2; }
+  .modal__close:hover, .modal__close:visited {
+    color: #919191; }
+
+.modal__footer--one-button {
+  text-align: center;
+  padding-bottom: 2rem;
+  padding-top: 1rem;
+  display: block; }
+  .modal__footer--one-button button {
+    padding-top: 1.2rem;
+    padding-bottom: 1.2rem;
+    width: 40%; }
+
+.form__group {
+  display: block; }
+  .form__group:not(:last-child) {
+    margin-bottom: 1rem; }
+
+.form__label {
+  text-transform: capitalize; }
+
+.form__input {
+  display: block;
+  width: 100%;
+  border: 1px solid #d7d3d3;
+  border-radius: 3px;
+  padding: 1rem 0.8rem;
+  font-size: 1.6rem; }
+  .form__input:focus {
+    outline: none;
+    border: 1px solid #e67e22; }
+
+.navigation {
+  padding: 1rem;
+  color: #333;
+  border-bottom: 1px solid #eee;
+  display: block;
+  width: 100%; }
+  .navigation::after {
+    content: "";
+    clear: both;
+    display: table; }
+  .navigation__right {
+    float: right; }
+  .navigation__left {
+    float: left; }
+  .navigation__brand {
+    display: inline-block;
+    text-transform: uppercase; }
+    .navigation__brand a {
+      text-decoration: none;
+      color: #333; }
+  .navigation__item {
+    display: inline-block;
+    margin-right: 2rem; }
+  .navigation__item--offer {
+    font-style: italic; }
+
+.navigation-message {
+  background: #181831;
+  color: #fff;
+  text-align: center;
+  padding: 1.5rem 0;
+  font-size: 1.6rem; }
+  .navigation-message span {
+    display: inline-block; }
+  .navigation-message__bold {
+    border-radius: 500px;
+    width: 3.5rem;
+    text-align: center;
+    font-weight: bold;
+    height: 3.5rem;
+    font-size: 2rem;
+    background: #fff;
+    color: #181831;
+    margin-right: 1rem; }

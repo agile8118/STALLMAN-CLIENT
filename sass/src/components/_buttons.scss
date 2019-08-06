@@ -1,0 +1,27 @@
+.button {
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: $color-text;
+  border-radius: 3px;
+  border: 1px solid $color-orange;
+  cursor: pointer;
+  transition: all 0.1s;
+  font-size: 1.6rem;
+
+  &:hover,
+  &:active {
+    color: #fff;
+    background: $color-orange;
+  }
+
+  &--full {
+    color: #fff;
+    background: $color-orange;
+
+    &:active,
+    &:hover {
+      background: $color-orange-dark;
+      border: 1px solid $color-orange-dark;
+    }
+  }
+}

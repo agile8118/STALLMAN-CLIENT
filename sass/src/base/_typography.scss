@@ -1,0 +1,18 @@
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: $color-grey-dark;
+  font-size: 1.6rem;
+}
+
+a {
+  text-decoration: none;
+  color: $color-orange;
+  transition: all 0.2s;
+
+  &:hover,
+  &:active {
+    color: $color-orange-dark;
+  }
+}

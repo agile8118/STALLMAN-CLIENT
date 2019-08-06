@@ -1,0 +1,60 @@
+.navigation {
+  padding: 1rem;
+  color: $color-text;
+  border-bottom: 1px solid #eee;
+  display: block;
+  width: 100%;
+
+  @include clearfix;
+
+  &__right {
+    float: right;
+  }
+
+  &__left {
+    float: left;
+  }
+
+  &__brand {
+    display: inline-block;
+    text-transform: uppercase;
+
+    a {
+      text-decoration: none;
+      color: $color-text;
+    }
+  }
+
+  &__item {
+    display: inline-block;
+    margin-right: 2rem;
+  }
+
+  &__item--offer {
+    font-style: italic;
+  }
+}
+
+.navigation-message {
+  background: #181831;
+  color: #fff;
+  text-align: center;
+  padding: 1.5rem 0;
+  font-size: 1.6rem;
+
+  span {
+    display: inline-block;
+  }
+
+  &__bold {
+    border-radius: 500px;
+    width: 3.5rem;
+    text-align: center;
+    font-weight: bold;
+    height: 3.5rem;
+    font-size: 2rem;
+    background: #fff;
+    color: #181831;
+    margin-right: 1rem;
+  }
+}
