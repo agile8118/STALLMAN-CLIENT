@@ -11,7 +11,7 @@
 
     <title>STALLMAN</title>
 
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
     <!-- Navigation  -->
@@ -46,7 +46,7 @@
     <div id="signup-modal"></div>
     <div id="signin-modal"></div>
 
-    <script src="bundle.js"></script>
+    <script src="/bundle.js"></script>
     <script>
       function toggleModal(id) {
         document.querySelector("#" + id).classList.toggle("u-display-none");
@@ -55,6 +55,10 @@
       function toggleMultipleModal(id1, id2) {
         document.querySelector("#" + id1).classList.toggle("u-display-none");
         document.querySelector("#" + id2).classList.toggle("u-display-none");
+      }
+
+      if (localStorage.getItem("token")) {
+        window.location.href = "profile.html";
       }
     </script>
   </body>

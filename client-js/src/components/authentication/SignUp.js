@@ -17,7 +17,7 @@ class SignUp extends Component {
   async onFormSubmit(event) {
     event.preventDefault();
 
-    var bodyFormData = new FormData();
+    let bodyFormData = new FormData();
     bodyFormData.set("first_name", this.state.firstName);
     bodyFormData.set("last_name", this.state.lastName);
     bodyFormData.set("email", this.state.email);
@@ -28,7 +28,7 @@ class SignUp extends Component {
     try {
       const response = await axios({
         method: "post",
-        url: `${config.baseURL}/account/sign-up/`,
+        url: `${baseURL}/account/sign-up/`,
         data: bodyFormData,
         config: { headers: { "Content-Type": "multipart/form-data" } }
       });
