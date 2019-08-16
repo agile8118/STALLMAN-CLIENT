@@ -1,137 +1,86 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
-import util from "../../util";
 import { baseURL } from "../../api/config";
 
 class Navigation extends Component {
-  openSideBar() {
-    document.querySelector(".sidebar").classList.add("sidebar--open");
-    document.querySelector(".sidebar").classList.remove("sidebar--close");
-  }
+  state = { section: window.location.pathname.split("/")[2] };
 
-  closeSideBar() {
-    document.querySelector(".sidebar").classList.add("sidebar--close");
-    document.querySelector(".sidebar").classList.remove("sidebar--open");
-  }
   render() {
-    var section = window.location.pathname.split("/")[2];
-    var homeClass = "side-nav__item";
-    var settingClass = "side-nav__item";
-    var pagesClass = "side-nav__item";
-    var privatesClass = "side-nav__item";
-    var profileClass = "side-nav__item";
-    switch (section) {
-      case "settings":
-        settingClass = "side-nav__item side-nav__item--active";
+    let homeClass = "sidebar__item";
+    let transactionsClass = "sidebar__item";
+    let reportsClass = "sidebar__item";
+    let profileClass = "sidebar__item";
+
+    switch (this.state.section) {
+      case "transactions":
+        transactionsClass = "sidebar__item sidebar__item--active";
         break;
-      case "pages":
-        pagesClass = "side-nav__item side-nav__item--active";
+      case "reports":
+        reportsClass = "sidebar__item sidebar__item--active";
         break;
-      case "profile":
-        profileClass = "side-nav__item side-nav__item--active";
+      case "user-information":
+        profileClass = "sidebar__item sidebar__item--active";
         break;
       default:
-        homeClass = "side-nav__item side-nav__item--active";
+        homeClass = "sidebar__item sidebar__item--active";
     }
+
     return (
-      <div>
-        <div className="row">
-          <div className="sidebar__opener">
-            <button
+      <div className="sidebar__wrapper">
+        <div className="sidebar">
+          <div className={homeClass}>
+            <Link
+              to="/profile"
               onClick={() => {
-                this.openSideBar();
+                this.setState({ section: "home" });
               }}
             >
-              <div className="bar" />
-              <div className="bar" />
-              <div className="bar" />
-            </button>
+              <i className="fas fa-home"></i> Home
+            </Link>
           </div>
-        </div>
-        <nav className="sidebar">
-          <button
-            onClick={() => {
-              this.closeSideBar();
-            }}
-            className="sidebar__closer a-6"
-          >
-            &times;
-          </button>
-
-          <ul className="side-nav">
-            <li className="side-nav__logo">
-              <span>Pagher</span>
-            </li>
-            <li className={homeClass}>
-              <Link
-                to="/admin"
-                className="side-nav__link"
-                onClick={() => {
-                  this.closeSideBar();
-                }}
-              >
-                <i className="fa fa-home" />
-                Home
-              </Link>
-            </li>
-            <li className={settingClass}>
-              <Link
-                to="/admin/settings"
-                className="side-nav__link"
-                onClick={() => {
-                  this.closeSideBar();
-                }}
-              >
-                <i className="fa fa-cogs" />
-                Setting
-              </Link>
-            </li>
-            <li className={pagesClass}>
-              <Link
-                to="/admin/pages/published"
-                className="side-nav__link"
-                onClick={() => {
-                  this.closeSideBar();
-                }}
-              >
-                <i className="fa fa-file-text" />
-                Pages
-              </Link>
-            </li>
-            <li className={profileClass}>
-              <Link
-                to="/admin/profile"
-                className="side-nav__link"
-                onClick={() => {
-                  this.closeSideBar();
-                }}
-              >
-                <i className="fa fa-user" />
-                Profile
-              </Link>
-            </li>
-            <li className="side-nav__item">
-              <a
-                href="#"
-                className="side-nav__link"
-                onClick={() => {
-                  localStorage.removeItem("token");
-                  window.location = `/`;
-                }}
-              >
-                <i className="fa fa-sign-out" />
-                Logout
-              </a>
-            </li>
-          </ul>
-
-          <div className="side-bottom">
-            <a href="/new-page/initial-step" className="btn-action">
-              Create a page
+          <div className={transactionsClass}>
+            <Link
+              to="/profile/transactions"
+              onClick={() => {
+                this.setState({ section: "transactions" });
+              }}
+            >
+              <i className="fas fa-file"></i>
+              Transactions
+            </Link>
+          </div>
+          <div className={reportsClass}>
+            <Link
+              to="/profile/reports"
+              onClick={() => {
+                this.setState({ section: "reports" });
+              }}
+            >
+              <i className="fas fa-file-alt"></i>Reports
+            </Link>
+          </div>
+          <div className={profileClass}>
+            <Link
+              to="/profile/user-information"
+              onClick={() => {
+                this.setState({ section: "user-information" });
+              }}
+            >
+              <i className="fas fa-user"></i>Profile
+            </Link>
+          </div>
+          <div className="sidebar__item">
+            <a
+              href="javascript:void(0)"
+              onClick={() => {
+                localStorage.removeItem("token");
+                window.location = `/`;
+              }}
+            >
+              <i className="fas fa-sign-out-alt"></i>Logout
             </a>
           </div>
-        </nav>
+        </div>
       </div>
     );
   }

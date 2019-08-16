@@ -4,6 +4,10 @@
   border-bottom: 1px solid #eee;
   display: block;
   width: 100%;
+  height: $navigation-height;
+  top: 0;
+  position: fixed;
+  background: #fff;
 
   @include clearfix;
 
@@ -18,6 +22,8 @@
   &__brand {
     display: inline-block;
     text-transform: uppercase;
+    word-spacing: 2px;
+    letter-spacing: 1px;
 
     a {
       text-decoration: none;
@@ -41,6 +47,7 @@
   text-align: center;
   padding: 1.5rem 0;
   font-size: 1.6rem;
+  margin-top: $navigation-height;
 
   span {
     display: inline-block;

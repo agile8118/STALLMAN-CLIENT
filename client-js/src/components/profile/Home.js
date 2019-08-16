@@ -2,7 +2,11 @@ import React, { Component } from "react";
 
 class Home extends Component {
   render() {
-    return <div>Profileasdfsd</div>;
+    return (
+      <div>
+        <h2 className="heading-secondary">Notifications</h2>
+      </div>
+    );
   }
 }
 

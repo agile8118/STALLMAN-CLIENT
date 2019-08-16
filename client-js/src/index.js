@@ -12,7 +12,7 @@ if (signupContainer) ReactDOM.render(<SignUp />, signupContainer);
 
 // Get the sign in container, if succeeded, render the profile component there
 const signinContainer = document.querySelector("#signin-modal");
-if (signinContainer) ReactDOM.render(<SignUp />, signinContainer);
+if (signinContainer) ReactDOM.render(<SignIn />, signinContainer);
 
 // Get the profile container, if succeeded, render the profile component there
 const profileContainer = document.querySelector("#profile");

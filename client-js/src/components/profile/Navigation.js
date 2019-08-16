@@ -8,9 +8,7 @@ class Navigation extends Component {
     return (
       <nav className="navigation">
         <div className="navigation__left">
-          <div className="navigation__brand">
-            Welcome <em>John Doe</em>
-          </div>
+          <div className="navigation__brand">Welcome John Doe</div>
         </div>
         <div className="navigation__right">
           <div className="navigation__item">
