@@ -1,14 +1,15 @@
 .form {
   &__group {
     display: block;
+    margin-bottom: 1.5rem;
 
     &:not(:last-child) {
-      margin-bottom: 1rem;
     }
   }
 
   &__label {
     text-transform: capitalize;
+    color: $color-text;
   }
 
   &__input {
@@ -16,8 +17,9 @@
     width: 100%;
     border: 1px solid #d7d3d3;
     border-radius: 3px;
-    padding: 1rem 0.8rem;
+    padding: 0.9rem 0.8rem;
     font-size: 1.6rem;
+    color: $color-text;
 
     &:focus {
       outline: none;

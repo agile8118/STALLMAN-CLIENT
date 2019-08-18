@@ -1,0 +1,34 @@
+.alert {
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  font-size: 1.6rem;
+  color: #fff;
+  display: none;
+
+  &--error {
+    background-color: $color-red;
+    display: flex;
+    align-items: center;
+  }
+
+  &--success {
+    background-color: $color-green;
+    display: flex;
+    align-items: center;
+  }
+
+  &__dismiss {
+    font-size: 1.6rem;
+    margin-left: auto;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      outline: none;
+      color: #cecece;
+    }
+  }
+}

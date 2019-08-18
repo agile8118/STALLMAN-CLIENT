@@ -4,6 +4,7 @@ const path = require("path");
 var app = express();
 
 const publicPath = path.join(__dirname, "./public");
+const port = 6060;
 
 app.use(express.static(publicPath));
 

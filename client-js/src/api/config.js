@@ -1,1 +1,1 @@
-export const baseURL = "https://epic-spence-r15smhl-s.liara.run";
+export const baseURL = "https://stallman.liara.run";
