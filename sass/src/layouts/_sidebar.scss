@@ -9,6 +9,7 @@
   height: 100%;
   width: $sidebar-width;
   background-color: #202a32;
+  overflow-x: hidden;
 
   &__item.sidebar__item--active a {
     color: #202a32;
@@ -30,7 +31,8 @@
     &--active {
     }
 
-    &:first-child {
+    &:last-child {
+      margin-bottom: 4rem;
     }
 
     & a {

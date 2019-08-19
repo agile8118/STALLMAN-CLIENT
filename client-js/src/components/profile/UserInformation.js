@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import axios from "axios";
-import util from "../../util";
-import { baseURL } from "../../api/config";
+import { connect } from "react-redux";
 import Loading from "../partials/Loading";
 import Alert from "../partials/Alert";
+import { getProfileInfo } from "../../actions/profile";
 
 class Profile extends Component {
   state = {
-    email: "",
+    email: this.props.profile.email,
     first_name: "",
     last_name: "",
     mobile_phone: "",
@@ -17,21 +17,8 @@ class Profile extends Component {
     loaded: false
   };
 
-  async componentDidMount() {
-    // Data (as an array) will recive and assing to data variable
-    const { data } = await axios.get(`${baseURL}/account/profile/`, {
-      headers: { Authorization: `Token ${localStorage.getItem("token")}` }
-    });
-
-    this.setState({
-      email: data[0].email,
-      first_name: data[0].first_name,
-      last_name: data[0].last_name,
-      mobile_phone: data[0].mobile_phone,
-      username: data[0].username,
-      url: util.convertToHttps(data[0].links.self),
-      loaded: true
-    });
+  componentDidMount() {
+    this.props.getProfileInfo();
   }
 
   onFormSubmit = async event => {
@@ -67,10 +54,19 @@ class Profile extends Component {
         }
       );
     } catch (error) {
-      this.setState({
-        alertMessage: "Sorry, something went wrong.",
-        alertType: "error"
-      });
+      // If the error was for the mobile phone...
+      if (error.response.data.mobile_phone) {
+        this.setState({
+          alertMessage: "This mobile phone already exists.",
+          alertType: "error"
+        });
+      } else {
+        // Otherwise return a general error
+        this.setState({
+          alertMessage: "Sorry, something went wrong.",
+          alertType: "error"
+        });
+      }
       util.hideLoading();
     }
   };
@@ -146,4 +142,11 @@ class Profile extends Component {
   }
 }
 
-export default Profile;
+const mapStateToProps = state => {
+  return { profile: state.profile };
+};
+
+export default connect(
+  mapStateToProps,
+  { getProfileInfo }
+)(Profile);

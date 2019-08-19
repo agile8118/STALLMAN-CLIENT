@@ -343,7 +343,8 @@ a {
   top: 4.7rem;
   height: 100%;
   width: 22rem;
-  background-color: #202a32; }
+  background-color: #202a32;
+  overflow-x: hidden; }
   .sidebar__item.sidebar__item--active a {
     color: #202a32;
     background: #fff; }
@@ -356,6 +357,8 @@ a {
     margin: 1rem 0;
     border-right: 1px solid #202a32;
     border-left: 1px solid #202a32; }
+    .sidebar__item:last-child {
+      margin-bottom: 4rem; }
     .sidebar__item a {
       display: flex;
       padding: 0.9rem 3rem;

@@ -1,5 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import { createStore, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
+
+import profileReducers from "./reducers/profile";
+
+const profileStore = createStore(profileReducers, applyMiddleware(thunk));
 
 import SignUp from "./components/authentication/SignUp";
 import SignIn from "./components/authentication/SignIn";
@@ -16,4 +23,10 @@ if (signinContainer) ReactDOM.render(<SignIn />, signinContainer);
 
 // Get the profile container, if succeeded, render the profile component there
 const profileContainer = document.querySelector("#profile");
-if (profileContainer) ReactDOM.render(<Profile />, profileContainer);
+if (profileContainer)
+  ReactDOM.render(
+    <Provider store={profileStore}>
+      <Profile />
+    </Provider>,
+    profileContainer
+  );
