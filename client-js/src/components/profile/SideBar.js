@@ -6,24 +6,18 @@ class Navigation extends Component {
   state = { section: window.location.pathname.split("/")[2] };
 
   render() {
-    let homeClass = "sidebar__item";
-    let transactionsClass = "sidebar__item";
-    let reportsClass = "sidebar__item";
-    let profileClass = "sidebar__item";
-
-    switch (this.state.section) {
-      case "transactions":
-        transactionsClass = "sidebar__item sidebar__item--active";
-        break;
-      case "reports":
-        reportsClass = "sidebar__item sidebar__item--active";
-        break;
-      case "user-information":
-        profileClass = "sidebar__item sidebar__item--active";
-        break;
-      default:
-        homeClass = "sidebar__item sidebar__item--active";
-    }
+    let homeClass = `sidebar__item ${
+      this.state.section === "home" ? "sidebar__item--active" : ""
+    }`;
+    let transactionsClass = `sidebar__item ${
+      this.state.section === "transactions" ? "sidebar__item--active" : ""
+    }`;
+    let reportsClass = `sidebar__item ${
+      this.state.section === "reports" ? "sidebar__item--active" : ""
+    }`;
+    let profileClass = `sidebar__item ${
+      this.state.section === "user-information" ? "sidebar__item--active" : ""
+    }`;
 
     return (
       <div className="sidebar__wrapper">

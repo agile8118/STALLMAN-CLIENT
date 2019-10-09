@@ -13,7 +13,7 @@ class Navigation extends Component {
         <div className="navigation__right">
           <div className="navigation__item">
             <a className="button" href="javascript:void(0)">
-              Go To VIP Account
+              Open Admin
             </a>
           </div>
         </div>

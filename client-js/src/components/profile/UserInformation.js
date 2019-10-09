@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
+import { Field, reduxForm } from "redux-form";
 import Loading from "../partials/Loading";
 import Alert from "../partials/Alert";
 import { getProfileInfo } from "../../actions/profile";
 
 class Profile extends Component {
   state = {
-    email: this.props.profile.email,
+    email: "",
     first_name: "",
     last_name: "",
     mobile_phone: "",
@@ -20,6 +21,15 @@ class Profile extends Component {
   componentDidMount() {
     this.props.getProfileInfo();
   }
+
+  renderInput = ({ input, label, meta }) => {
+    return (
+      <div className="form__group">
+        <label className="form__label">{label}</label>
+        <input {...input} />
+      </div>
+    );
+  };
 
   onFormSubmit = async event => {
     event.preventDefault();
@@ -72,78 +82,84 @@ class Profile extends Component {
   };
 
   render() {
-    if (this.state.loaded) {
-      return (
-        <div>
-          <h2 className="heading-secondary">Profile</h2>
-          <Alert
-            message={this.state.alertMessage}
-            onClose={() => {
-              this.setState({ alertMessage: null });
-            }}
-            type={this.state.alertType}
+    // if (this.state.loaded) {
+    return (
+      <div>
+        <h2 className="heading-secondary">Profile</h2>
+        <Alert
+          message={this.state.alertMessage}
+          onClose={() => {
+            this.setState({ alertMessage: null });
+          }}
+          type={this.state.alertType}
+        />
+        <form className="u-margin-top-md" onSubmit={this.onFormSubmit}>
+          <Field
+            name="first_name"
+            component={this.renderInput}
+            label="First name"
           />
-          <form className="u-margin-top-md" onSubmit={this.onFormSubmit}>
-            <div className="form__group">
-              <label className="form__label">First name</label>
-              <input
-                className="form__input"
-                type="text"
-                value={this.state.first_name}
-                onChange={e => this.setState({ first_name: e.target.value })}
-                maxLength="30"
-              />
-            </div>
 
-            <div className="form__group">
-              <label className="form__label">Last name</label>
-              <input
-                className="form__input"
-                type="text"
-                value={this.state.last_name}
-                onChange={e => this.setState({ last_name: e.target.value })}
-                maxLength="30"
-              />
-            </div>
+          <div className="form__group">
+            <label className="form__label">First name</label>
+            <input
+              className="form__input"
+              type="text"
+              value={this.state.first_name}
+              onChange={e => this.setState({ first_name: e.target.value })}
+              maxLength="30"
+            />
+          </div>
 
-            <div className="form__group">
-              <label className="form__label">Email</label>
-              <input
-                className="form__input"
-                type="email"
-                value={this.state.email}
-                onChange={e => this.setState({ email: e.target.value })}
-              />
-            </div>
+          <div className="form__group">
+            <label className="form__label">Last name</label>
+            <input
+              className="form__input"
+              type="text"
+              value={this.state.last_name}
+              onChange={e => this.setState({ last_name: e.target.value })}
+              maxLength="30"
+            />
+          </div>
 
-            <div className="form__group">
-              <label className="form__label">Mobile Phone</label>
-              <input
-                className="form__input"
-                type="text"
-                value={this.state.mobile_phone}
-                onChange={e => this.setState({ mobile_phone: e.target.value })}
-              />
-            </div>
+          <div className="form__group">
+            <label className="form__label">Email</label>
+            <input
+              className="form__input"
+              type="email"
+              value={this.state.email}
+              onChange={e => this.setState({ email: e.target.value })}
+            />
+          </div>
 
-            <div className="u-right-content">
-              <button className="button">Save</button>
-            </div>
-          </form>
-        </div>
-      );
-    } else {
-      return (
-        <div className="u-center-content">
-          <Loading />
-        </div>
-      );
-    }
+          <div className="form__group">
+            <label className="form__label">Mobile Phone</label>
+            <input
+              className="form__input"
+              type="text"
+              value={this.state.mobile_phone}
+              onChange={e => this.setState({ mobile_phone: e.target.value })}
+            />
+          </div>
+
+          <div className="u-right-content">
+            <button className="button">Save</button>
+          </div>
+        </form>
+      </div>
+    );
+    // } else {
+    // return (
+    // <div className="u-center-content">
+    // <Loading />
+    // </div>
+    // );
+    // }
   }
 }
 
 const mapStateToProps = state => {
-  return { profile: state.profile };
+  return { profile: state.profile, form: state.form };
 };
 
 export default connect(

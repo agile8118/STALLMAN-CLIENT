@@ -1,12 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import { createStore, applyMiddleware } from "redux";
+import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 
 import profileReducers from "./reducers/profile";
 
-const profileStore = createStore(profileReducers, applyMiddleware(thunk));
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const profileStore = createStore(
+  profileReducers,
+  composeEnhancers(applyMiddleware(thunk))
+);
 
 import SignUp from "./components/authentication/SignUp";
 import SignIn from "./components/authentication/SignIn";
